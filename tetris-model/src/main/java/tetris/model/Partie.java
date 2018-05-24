@@ -1,44 +1,68 @@
 package tetris.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="Partie")
 public class Partie {
-protected int par_id;
-protected String par_niveau; // peut-être à modifier en int
-protected int par_score;
-protected int par_idjoueur;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="PER_ID")
+	@NotNull
+protected int parId;
+	
+	@Column(name="PAR_NIVEAU", columnDefinition="VARCHAR(50)")
+protected String parNiveau; // peut-être à modifier en int
+	
+	@Column(name="PAR_SCORE")
+protected int parScore;
+	@Column(name="PAR_IDJOUEUR")
+protected int parIdJoueur;
 
 //Getters and setters
-		public int getPar_id() {
-			return par_id;
-		}
-		public void setPar_id(int par_id) {
-			this.par_id = par_id;
-		}
-		public String getPar_niveau() {
-			return par_niveau;
-		}
-		public void setPar_niveau(String par_niveau) {
-			this.par_niveau = par_niveau;
-		}
-		public int getPar_score() {
-			return par_score;
-		}
-		public void setPar_score(int par_score) {
-			this.par_score = par_score;
-		}
-		public int getPar_idjoueur() {
-			return par_idjoueur;
-		}
-		public void setPar_idjoueur(int par_idjoueur) {
-			this.par_idjoueur = par_idjoueur;
-		}
+	public int getParId() {
+		return parId;
+	}
+
+	public void setParId(int parId) {
+		this.parId = parId;
+	}
+
+	public String getParNiveau() {
+		return parNiveau;
+	}
+
+	public void setParNiveau(String parNiveau) {
+		this.parNiveau = parNiveau;
+	}
+
+	public int getParScore() {
+		return parScore;
+	}
+
+	public void setParScore(int parScore) {
+		this.parScore = parScore;
+	}
+
+	public int getParIdJoueur() {
+		return parIdJoueur;
+	}
+
+	public void setParIdJoueur(int parIdJoueur) {
+		this.parIdJoueur = parIdJoueur;
+	}
+	
 		//Constructeur
-		public Partie(int par_id/*, String par_niveau, int par_score*/) {
+		public Partie(int parId/*, String parNiveau, int parScore*/) {
 			super();
-			this.par_id = par_id;
-			this.par_niveau = par_niveau;
-			this.par_score = par_score;
+			this.parId = parId;
+			this.parNiveau = parNiveau;
+			this.parScore = parScore;
 			System.out.println("partie");
 		}
-		
+
+	
 		
 }

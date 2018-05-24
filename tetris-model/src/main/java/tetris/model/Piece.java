@@ -1,44 +1,76 @@
 package tetris.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 public class Piece {
- protected int pie_id;
- protected String pie_nom;
- protected String pie_couleur;
- protected int pie_idpoint;
+	
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="PIE_ID")
+	@NotNull
+ protected int pieId;
+	@Column(name="PIE_NOM", columnDefinition="VARCHAR(50)")
+ protected String pieNom;
+	@Column(name="PIE_COU", columnDefinition="VARCHAR(50)")
+ protected String pieCouleur;
+	@Column(name="PIE_IDPOINT")
+ protected int pieIdPoint;
  
  
 		// Getters and Setters
-					public int getPie_id() {
-						return pie_id;
-					}
-					public void setPie_id(int pie_id) {
-						this.pie_id = pie_id;
-					}
-					public String getPie_nom() {
-						return pie_nom;
-					}
+	public int getPieId() {
+		return pieId;
+	}
+
+
+	public void setPieId(int pieId) {
+		this.pieId = pieId;
+	}
+
+
+	public String getPieNom() {
+		return pieNom;
+	}
+
+
+	public void setPieNom(String pieNom) {
+		this.pieNom = pieNom;
+	}
+
+
+	public String getPieCouleur() {
+		return pieCouleur;
+	}
+
+
+	public void setPieCouleur(String pieCouleur) {
+		this.pieCouleur = pieCouleur;
+	}
+
+
+	public int getPieIdPoint() {
+		return pieIdPoint;
+	}
+
+
+	public void setPieIdPoint(int pieIdPoint) {
+		this.pieIdPoint = pieIdPoint;
+	}		
 					
-					public void setPie_nom(String pie_nom) {
-						this.pie_nom = pie_nom;
-					}
-					public String getPie_couleur() {
-						return pie_couleur;
-					}
-					public void setPie_couleur(String pie_couleur) {
-						this.pie_couleur = pie_couleur;
-					}
-					public int getPie_idpoint() {
-						return pie_idpoint;
-					}
-					public void setPie_idpoint(int pie_idpoint) {
-						this.pie_idpoint = pie_idpoint;
-					}
 	//Constructeurs
-			public Piece(int pie_id, String pie_nom, String pie_couleur) {
+			public Piece(int pieId, String pieNom, String pieCouleur) {
 				super();
-				this.pie_id = pie_id;
-				this.pie_nom = pie_nom;
-				this.pie_couleur = pie_couleur;
+				this.pieId = pieId;
+				this.pieNom = pieNom;
+				this.pieCouleur = pieCouleur;
 				
 			}
+
+
+		
 }
