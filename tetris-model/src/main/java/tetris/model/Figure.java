@@ -1,22 +1,37 @@
 package tetris.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name="figure")
 public class Figure {
-protected int fig_idpiece;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="FIG_IDPIECE")
+protected int figIdpiece;
 
 
 	//Getters and Setters
-public int getFig_idpiece() {
-	return fig_idpiece;
-}
+	public int getFigIdpiece() {
+		return figIdpiece;
+	}
 
-public void setFig_idpiece(int fig_idpiece) {
-	this.fig_idpiece = fig_idpiece;
-}
+
+	public void setFigIdpiece(int figIdpiece) {
+		this.figIdpiece = figIdpiece;
+	}
 
 public Figure(int fig_idpiece) {
 	super();
-	this.fig_idpiece = fig_idpiece;
+	this.figIdpiece = fig_idpiece;
 }
+
+
+
 
 }

@@ -1,44 +1,80 @@
 package tetris.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 @Entity
 @Table(name="joueur")
 public class Joueur {
-protected int jou_id;
-protected String jou_nom;
-protected String jou_prenom;
-protected String jou_nomutilisateur;
+	@Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="JOU_ID")
+protected int jouId;
+	
+	@Column(name="JOU_NOM", columnDefinition="VARCHAR(50)")
+	@NotEmpty
+	@Size(max=50)
+protected String jouNom;
+	
+	@Column(name="JOU_PRENOM", columnDefinition="VARCHAR(50)")
+	@NotEmpty
+	@Size(max=50)
+
+protected String jouPrenom;
+	
+	@Column(name="JOU_NOMUTILISATEUR", columnDefinition="VARCHAR(50)")
+	@NotEmpty
+	@Size(max=50)
+protected String jouNomutilisateur;
 
 //Getters and Setters
-			public int getJou_id() {
-				return jou_id;
-			}
-			public void setJou_id(int jou_id) {
-				this.jou_id = jou_id;
-			}
-			public String getJou_nom() {
-				return jou_nom;
-			}
-			public void setJou_nom(String jou_nom) {
-				this.jou_nom = jou_nom;
-			}
-			public String getJou_prenom() {
-				return jou_prenom;
-			}
-			public void setJou_prenom(String jou_prenom) {
-				this.jou_prenom = jou_prenom;
-			}
-			public String getJou_nomutilisateur() {
-				return jou_nomutilisateur;
-			}
-			public void setJou_nomutilisateur(String jou_nomutilisateur) {
-				this.jou_nomutilisateur = jou_nomutilisateur;
-			}
+	public int getJouId() {
+		return jouId;
+	}
+
+	public void setJouId(int jouId) {
+		this.jouId = jouId;
+	}
+
+	public String getJouNom() {
+		return jouNom;
+	}
+
+	public void setJouNom(String jouNom) {
+		this.jouNom = jouNom;
+	}
+
+	public String getJouPrenom() {
+		return jouPrenom;
+	}
+
+	public void setJouPrenom(String jouPrenom) {
+		this.jouPrenom = jouPrenom;
+	}
+
+	public String getJouNomutilisateur() {
+		return jouNomutilisateur;
+	}
+
+	public void setJouNomutilisateur(String jouNomutilisateur) {
+		this.jouNomutilisateur = jouNomutilisateur;
+	}
+	
 // Constructeur
 //oblige le joueur à entrer toutes ces informations pour se créer
-		public Joueur(/*int jou_id,*/ String jou_nom/*, String jou_prenom, String jou_nomutilisateur*/) {
+		public Joueur(/*int jouId,*/ String jouNom/*, String jouPrenom, String jouNomutilisateur*/) {
 			super();
-			this.jou_id = jou_id;
-			this.jou_nom = jou_nom;
-			this.jou_prenom = jou_prenom;
-			this.jou_nomutilisateur = jou_nomutilisateur;
+			this.jouId = jouId;
+			this.jouNom = jouNom;
+			this.jouPrenom = jouPrenom;
+			this.jouNomutilisateur = jouNomutilisateur;
 		}
+
+		
 }

@@ -1,34 +1,55 @@
 package tetris.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 @Entity
  @Table(name="administrateur")
 
 public class Administrateur {
- protected int adm_id;
- protected String adm_mdp;
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @Column(name="ADM_ID")
+protected int admId;
+	
+	 @Column(name="ADM_MDP", columnDefinition="VARCHAR(50)")
+	 @NotEmpty
+	 @Size(max=50)
+ protected String admMdp;
 
  //Getters and Setters
- 
- @Id
-		public int getAdm_id() {
-			return adm_id;
+	 public int getAdmId() {
+			return admId;
 		}
-		public void setAdm_id(int adm_id) {
-			this.adm_id = adm_id;
+
+		public void setAdmId(int admId) {
+			this.admId = admId;
 		}
-		public String getAdm_mdp() {
-			return adm_mdp;
+
+		public String getAdmMdp() {
+			return admMdp;
 		}
-		public void setAdm_mdp(String adm_mdp) {
-			this.adm_mdp = adm_mdp;
+
+		public void setAdmMdp(String admMdp) {
+			this.admMdp = admMdp;
 		}
+
 		
 	//Constructeur	
 		public Administrateur(int adm_id, String adm_mdp) {
 			super();
-			this.adm_id = adm_id;
-			this.adm_mdp = adm_mdp;
+			this.admId = adm_id;
+			this.admMdp = adm_mdp;
 		}
+
+		
 
  
 
