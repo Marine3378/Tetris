@@ -2,26 +2,56 @@ package tetris.model;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
 public class DAOFigureJPA implements IDAOFigure{
-
-	public Figure save(Figure o) {
-		// TODO Auto-generated method stub
-		return null;
+	private EntityManager em;
+	 public DAOFigureJPA() {
+		 this.em= HibernateUtils.getEntityManager();
+	 }
+	
+	
+	
+	public Figure save(Figure entity) {
+		EntityTransaction tx = em.getTransaction();
+		try {
+		tx.begin();
+		this.em.persist(entity);
+		tx.commit();
+	
+		return entity;
+		}
+		
+		catch(Exception e){ return (entity);
+		}
 	}
 
-	public boolean delete(Figure o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	public Figure find(Figure o) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean delete(Figure entity) {
+EntityTransaction tx=this.em.getTransaction();
+		
+		try {
+		tx.begin();	
+		this.em.remove(this.em.merge(entity));
+		tx.commit();
+		 return true;
+		 
+		}
+		catch (Exception ex){
+			return false;
+	}
+		}
+
+	public Figure findById(int id) {
+		return this.em.find(Figure.class, id);
 	}
 
 	public List<Figure> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return this.em
+				.createQuery("select f from Figure f", Figure.class)
+				.getResultList();
+		}
 
-}
+	}
+	
