@@ -36,7 +36,7 @@ protected String jouPrenom;
 	@Size(max=50)
 protected String jouNomutilisateur;
 	
-	@OneToMany(mappedBy="JOUEUR")
+	@OneToMany(mappedBy="joueur")
 	private List<Partie> partiesJouees;
 	
 	

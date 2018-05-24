@@ -9,8 +9,7 @@ public class Partie {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="PER_ID")
-	@NotNull
+	@Column(name="PAR_ID")
 protected int parId;
 	
 	@Column(name="PAR_NIVEAU", columnDefinition="VARCHAR(50)")
@@ -21,7 +20,9 @@ protected int parScore;
 	
 	@ManyToOne
 	@JoinColumn(name="PAR_IDJOUEUR")
-protected int parIdJoueur;
+	protected Joueur joueur;
+	
+	protected int parIdJoueur;
 
 //Getters and setters
 	public int getParId() {

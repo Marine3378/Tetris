@@ -1,13 +1,17 @@
 package tetris.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+@Entity
+@Table(name= "point")
 public class Point {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,8 +23,10 @@ protected int pointX;
 	@Column(name="POINT_Y")
 protected int pointY;
 	@ManyToOne
-	@JoinColumn(name="POINT_IDFIGURE")
-protected int pointIdFigure;
+	@JoinColumn(name="pointIdFigure")
+	protected Figure figure;
+	
+//protected int pointIdFigure;
 
 //Getters and Setters
 	public int getPointId() {
@@ -47,20 +53,20 @@ protected int pointIdFigure;
 		this.pointY = pointY;
 	}
 
-	public int getPointIdFigure() {
+	/*public int getPointIdFigure() {
 		return pointIdFigure;
 	}
 
 	public void setPointIdFigure(int pointIdFigure) {
 		this.pointIdFigure = pointIdFigure;
-	}
+	}*/
 		//Constructeur
 		public Point(int pointId, int pointX, int pointY, int pointIdFigure) {
 			super();
 			this.pointId = pointId;
 			this.pointX = pointX;
 			this.pointY = pointY;
-			this.pointIdFigure = pointIdFigure;
+			//this.pointIdFigure = pointIdFigure;
 		}
 
 		

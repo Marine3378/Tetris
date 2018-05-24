@@ -1,5 +1,5 @@
 
-
+import tetris.model.*;
 
 public class principal {
 
@@ -223,5 +223,13 @@ public class principal {
 			int point_idfigure=sc.nextInt();
 			Point point = new Point(point_id,point_x,point_y,point_idfigure);
 			daoPoint.save(point);	*/
+		IDAOAdministrateur daoAdministrateur= new DAOAdministrateurJPA();
+		IDAOPiece daoPiece= new DAOPieceJPA();
+		IDAOFigure daoFigure= new DAOFigureJPA();
+		IDAOPartie daoPartie= new DAOPartieJPA();
+		IDAOPoint daoPoint= new DAOPointJPA();
+		
+		
+		
 }
 }
