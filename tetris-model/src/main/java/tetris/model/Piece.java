@@ -1,9 +1,12 @@
 package tetris.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 public class Piece {
@@ -21,6 +24,8 @@ public class Piece {
 	@Column(name="PIE_IDPOINT")
  protected int pieIdPoint;
  
+	@OneToMany(mappedBy="piece")
+	private List<Figure> figuresJouees;
  
 		// Getters and Setters
 	public int getPieId() {
@@ -61,8 +66,18 @@ public class Piece {
 	public void setPieIdPoint(int pieIdPoint) {
 		this.pieIdPoint = pieIdPoint;
 	}		
-					
-	//Constructeurs
+				
+	public List<Figure> getFiguresJouees() {
+		return figuresJouees;
+	}
+
+
+	public void setFiguresJouees(List<Figure> figuresJouees) {
+		this.figuresJouees = figuresJouees;
+	}
+
+
+			//Constructeurs
 			public Piece(int pieId, String pieNom, String pieCouleur) {
 				super();
 				this.pieId = pieId;

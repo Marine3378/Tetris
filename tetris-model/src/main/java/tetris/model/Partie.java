@@ -18,7 +18,9 @@ protected String parNiveau; // peut-être à modifier en int
 	
 	@Column(name="PAR_SCORE")
 protected int parScore;
-	@Column(name="PAR_IDJOUEUR")
+	
+	@ManyToOne
+	@JoinColumn(name="PAR_IDJOUEUR")
 protected int parIdJoueur;
 
 //Getters and setters
