@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
 import tetris.model.HibernateUtils;
 
 public class DAOPieceJPA implements IDAOPiece{
@@ -51,4 +53,11 @@ public class DAOPieceJPA implements IDAOPiece{
 		return this.em.find(Piece.class, id);
 	}
 
+	
+	public List<Piece> findPiece(String nomPiece)
+	{
+		Query myQuery = em.createQuery("select p from Piece p join fetch p.Figure f join fetch f.Point po where p.nom = :nomPiece", Piece.class);
+		myQuery.setParameter("nomPiece", nomPiece);
+		return myQuery.getResultList();
+	}
 }
