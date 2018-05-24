@@ -1,5 +1,6 @@
-
-
+package tetris.model;
+@Entity
+@Table(name="joueur")
 public class Joueur {
 protected int jou_id;
 protected String jou_nom;

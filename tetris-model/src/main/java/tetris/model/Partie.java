@@ -1,4 +1,4 @@
-
+package tetris.model;
 
 public class Partie {
 protected int par_id;

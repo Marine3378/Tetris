@@ -1,5 +1,6 @@
-
-
+package tetris.model;
+@Entity
+@Table(name="figure")
 public class Figure {
 protected int fig_idpiece;
 

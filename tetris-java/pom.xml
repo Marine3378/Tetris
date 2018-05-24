@@ -3,4 +3,11 @@
   <groupId>tetris</groupId>
   <artifactId>tetris-java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>tetris</groupId>
+  		<artifactId>tetris-model</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

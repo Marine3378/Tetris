@@ -1,10 +1,15 @@
+package tetris.model;
 
+@Entity
+ @Table(name="administrateur")
 
 public class Administrateur {
  protected int adm_id;
  protected String adm_mdp;
- 
+
  //Getters and Setters
+ 
+ @Id
 		public int getAdm_id() {
 			return adm_id;
 		}

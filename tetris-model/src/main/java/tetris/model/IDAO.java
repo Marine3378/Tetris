@@ -1,4 +1,4 @@
-
+package tetris.model;
 
 import java.util.List;
 
