@@ -23,7 +23,7 @@ protected int admId;
 	 @NotEmpty
 	 @Size(max=50)
  protected String admMdp;
-
+	 
  //Getters and Setters
 	 public int getAdmId() {
 			return admId;

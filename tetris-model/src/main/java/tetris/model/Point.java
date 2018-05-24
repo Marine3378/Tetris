@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 public class Point {
@@ -16,7 +18,8 @@ protected int pointId;
 protected int pointX;
 	@Column(name="POINT_Y")
 protected int pointY;
-	@Column(name="POINT_IDFIGUR")
+	@ManyToOne
+	@JoinColumn(name="POINT_IDFIGURE")
 protected int pointIdFigure;
 
 //Getters and Setters
