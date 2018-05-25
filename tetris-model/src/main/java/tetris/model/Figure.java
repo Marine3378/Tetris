@@ -17,11 +17,11 @@ import javax.persistence.Table;
 public class Figure {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name= "FIG_IDPIECE")
-	protected int figIdpiece;
+	@Column (name= "FIG_ID")
+	protected int figId;
 	
 	@ManyToOne
-	@JoinColumn(name="FIG_PIECE")
+	@JoinColumn(name="FIG_IDPIECE")
 	protected Piece piece;
 	
 	
@@ -41,20 +41,23 @@ private List<Point> pointsJouees;
 	}
 
 	public int getFigIdpiece() {
-		return figIdpiece;
+		return figId;
 	}
 
 	
 	public void setFigIdpiece(int figIdpiece) {
-		this.figIdpiece = figIdpiece;
+		this.figId = figId;
 	}
 
 		//Constructeur
-public Figure(int fig_idpiece) {
+/*public Figure(int figIdpiece) {
 	super();
-	this.figIdpiece = fig_idpiece;
-}
+	this.figIdpiece = figIdpiece;
+}*/
 
+public Figure() {
+	
+}
 
 
 

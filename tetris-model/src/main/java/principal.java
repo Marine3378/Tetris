@@ -228,6 +228,7 @@ public class principal {
 		IDAOFigure daoFigure= new DAOFigureJPA();
 		IDAOPartie daoPartie= new DAOPartieJPA();
 		IDAOPoint daoPoint= new DAOPointJPA();
+		IDAOJoueur daoJoueur= new DAOJoueurJPA();
 //ADMINISTRATEUR	
 		//Administrateur admin1 = new Administrateur();
 		//daoAdministrateur.save(admin1);
@@ -237,15 +238,59 @@ public class principal {
 		//daoAdministrateur.findAll();
 		
 //PIECE		
-		Piece pieceA = new Piece("cube","rouge");
+		//Piece pieceA = new Piece("cube","rouge");
+		//Piece pieceB = new Piece();
+		//pieceB.setPieId(1);
 		
-		
-		daoPiece.save(pieceA);
+		//daoPiece.save(pieceA);
 		
 		//admin1.setAdmId(3);
 		//daoAdministrateur.delete(admin1);
-		//daoAdministrateur.findById(4);
-		//daoAdministrateur.findAll();
+		//System.out.println(daoPiece.findById(4));
+		//System.out.println(daoPiece.findAll());
 		
+		//daoPiece.delete(pieceB);
+
+//JOUEUR		
+		/*Joueur joueurA = new Joueur("toto");
+		daoJoueur.save(joueurA);
+		Joueur joueurB = new Joueur("tata");
+		daoJoueur.save(joueurB);
+		Joueur joueurC = new Joueur("titi");
+		daoJoueur.save(joueurC);
+		Joueur joueurA = new Joueur();
+		joueurA.setJouId(1);
+		daoJoueur.delete(joueurA);*/
+		
+		//System.out.println(daoJoueur.findById(2));
+		//System.out.println(daoJoueur.findAll());
+		
+//PARTIE
+		Partie partieA = new Partie();
+		Partie partieB = new Partie();
+		Partie partieC = new Partie();
+		//daoPartie.save(partieA);
+		//daoPartie.save(partieB);
+		//daoPartie.save(partieC);
+		//partieA.setParId(1);
+		//daoPartie.delete(partieA);
+		
+		//System.out.println(daoPartie.findById(2));
+		//System.out.println(daoPartie.findAll());
+				
+//FIGURE
+		Figure figureA = new Figure();
+		Figure figureB = new Figure();
+		Figure figureC = new Figure();
+		daoFigure.save(figureA);
+		daoFigure.save(figureB);
+        daoFigure.save(figureC);
+
+		//figureA.setParId(1);
+		//daoFigure.delete(figureA);
+		
+		//System.out.println(daoFigure.findById(2));
+		//System.out.println(daoFigure.findAll());
+						
 }
 }

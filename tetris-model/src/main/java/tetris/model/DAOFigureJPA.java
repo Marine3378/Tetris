@@ -23,7 +23,10 @@ public class DAOFigureJPA implements IDAOFigure{
 		return entity;
 		}
 		
-		catch(Exception e){ return (entity);
+		catch(Exception ex){ 
+			ex.printStackTrace();
+			return (entity);
+		
 		}
 	}
 

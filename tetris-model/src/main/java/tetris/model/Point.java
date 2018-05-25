@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class Point {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="PER_ID")
+	@Column(name="POINT_ID")
 	@NotNull
 protected int pointId;
 	@Column(name="POINT_X")
@@ -23,7 +23,7 @@ protected int pointX;
 	@Column(name="POINT_Y")
 protected int pointY;
 	@ManyToOne
-	@JoinColumn(name="pointIdFigure")
+	@JoinColumn(name="POINT_IDFIGURE")
 	protected Figure figure;
 	
 //protected int pointIdFigure;

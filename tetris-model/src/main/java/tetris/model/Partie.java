@@ -21,8 +21,6 @@ protected int parScore;
 	@ManyToOne
 	@JoinColumn(name="PAR_IDJOUEUR")
 	protected Joueur joueur;
-	
-	protected int parIdJoueur;
 
 //Getters and setters
 	public int getParId() {
@@ -48,22 +46,15 @@ protected int parScore;
 	public void setParScore(int parScore) {
 		this.parScore = parScore;
 	}
-
-	public int getParIdJoueur() {
-		return parIdJoueur;
-	}
-
-	public void setParIdJoueur(int parIdJoueur) {
-		this.parIdJoueur = parIdJoueur;
-	}
 	
 		//Constructeur
-		public Partie(int parId/*, String parNiveau, int parScore*/) {
-			super();
+		public Partie(/*int parId, String parNiveau, int parScore*/) {
+		/*	super();
 			this.parId = parId;
 			this.parNiveau = parNiveau;
 			this.parScore = parScore;
-			System.out.println("partie");
+			*/
+				
 		}
 
 	

@@ -92,5 +92,7 @@ public List<Partie> getPartiesJouees() {
 			this.jouNomutilisateur = jouNomutilisateur;
 		}
 
+		public Joueur() {
 		
+		}
 }

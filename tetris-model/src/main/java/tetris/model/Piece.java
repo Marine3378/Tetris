@@ -26,8 +26,7 @@ public class Piece {
  protected String pieNom;
 	@Column(name="PIE_COULEUR", columnDefinition="VARCHAR(50)")
  protected String pieCouleur;
-	@Column(name="PIE_IDPOINT")
- protected int pieIdPoint;
+
  
 	@OneToMany(mappedBy="piece")
 	private List<Figure> figuresJouees;
@@ -63,14 +62,7 @@ public class Piece {
 	}
 
 
-	public int getPieIdPoint() {
-		return pieIdPoint;
-	}
-
-
-	public void setPieIdPoint(int pieIdPoint) {
-		this.pieIdPoint = pieIdPoint;
-	}		
+		
 				
 	public List<Figure> getFiguresJouees() {
 		return figuresJouees;
