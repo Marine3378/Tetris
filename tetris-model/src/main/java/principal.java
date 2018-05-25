@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import tetris.model.*;
 
@@ -112,7 +113,7 @@ public class principal {
 	System.out.println(leJoueurAChercher.getJou_nom());
 	*/
 	/*// CREATION DU JOUEUR
-			+
+			
   			int choix= sc.nextInt();
   			switch (choix) {
   			case 1 :
@@ -322,9 +323,231 @@ public class principal {
 		
 		//System.out.println(daoPoint.findById(2));
 		//System.out.println(daoPoint.findAll());*/
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Voulez vous /n 1-ajouter /n modifier un joueur ?");
+		int choix= sc.nextInt();
+		IDAOJoueur daoJoueur = new DAOJoueurJPA();
+		switch (choix) {
+			case 1 :
+				System.out.println("jou_nom");
+				String jouNom=sc.next();
+				System.out.println("jou_prenom");
+				String jouPrenom=sc.next();
+				System.out.println("jou_nomutilisateur");
+				String jouNomutilisateur=sc.next();
+				Joueur joueur = new Joueur(jouNom);
+				joueur.setJouPrenom(jouPrenom);
+				joueur.setJouNomutilisateur(jouNomutilisateur);
+				daoJoueur.save(joueur);
+			case 2 :
+				System.out.println("Saisissez le nom du joueur à modifier");
+				jouNom=sc.next();
+				
+				Joueur leJoueurAModifier = null;
+				for(Joueur j: daoJoueur.findAll()) {
+					System.out.println(jouNom);
+					if (j.getJouNom().equals(jouNom)) { 
+						leJoueurAModifier = j;  //si le nom du joueur j est égal au nom saisi, alors je change la valeur du joueur à modifier
+					}
+				}
+				System.out.println("1-modifier le nom, 2-modifier le prénom, 3-modifier le nom d'utilisateur, 4-tout");
+				 int choix2= sc.nextInt();
+					switch (choix2) {
+						case 1 :
+							System.out.println("nouveau nom ");
+							jouNom=sc.next();
+							leJoueurAModifier.setJouNom(jouNom);
+							daoJoueur.save(leJoueurAModifier);
+						break;
+						case 2 :
+							System.out.println("nouveau prénom");
+							jouPrenom=sc.next();
+							joueur = new Joueur(jouNom);
+							joueur.setJouPrenom(jouPrenom);
+							daoJoueur.save(joueur);
+						break;
+						case 3 :
+							System.out.println("nouveau nom d'utilisateur");
+							jouNomutilisateur=sc.next();
+							joueur = new Joueur(jouNom);
+							joueur.setJouNomutilisateur(jouNomutilisateur);
+							daoJoueur.save(joueur);
+						break;
+						case 4 :
+							System.out.println("nouveau Nom ");
+							jouNom=sc.next();
+							System.out.println("nouveau prénom");
+							jouPrenom=sc.next();
+							System.out.println("nouveau nom d'utilisateur");
+							jouNomutilisateur=sc.next();
+							joueur = new Joueur(jouNom);
+							joueur.setJouPrenom(jouPrenom);
+							joueur.setJouNomutilisateur(jouNomutilisateur);
+							daoJoueur.save(joueur);
+						break;
+					}
+					break;
+			}
 		
-		
+		System.out.println("Voulez vous /n 1-ajouter /n modifier un administrateur ?");
+		choix= sc.nextInt();
+		IDAOAdministrateur daoAdministrateur = new DAOAdministrateurJPA();
+		switch (choix) {
+			case 1 :
+				System.out.println("mot de passe");
+				String admMdp=sc.next();
+				Administrateur administrateur  = new Administrateur ();
+				administrateur.setAdmMdp(admMdp);
+				daoAdministrateur.save(administrateur);
+			case 2 :
+				System.out.println("Saisissez l'id de l'administrateur à modifier");
+				int admId=sc.nextInt();
+				Administrateur adminAChanger = daoAdministrateur.findById(admId);
+				System.out.println("Entrer un nouveau mot de passe");
+				admMdp = sc.next();
+				adminAChanger.setAdmMdp(admMdp);
+				daoAdministrateur.save(adminAChanger);
+				break;
+					}
+		System.out.println("Voulez vous /n 1-ajouter /n modifier une pièce ?");
+		choix= sc.nextInt();
+		IDAOPiece daoPiece = new DAOPieceJPA();
+		switch (choix) {
+			case 1 :
+				System.out.println("Nom de la pièce");
+				String pieNom=sc.next();
+				System.out.println("Couleur de la pièce");
+				String pieCouleur=sc.next();
+				Piece piece = new Piece();
+				piece.setPieNom(pieNom);
+				piece.setPieCouleur(pieCouleur);
+				daoPiece.save(piece);
+			case 2 :
+				System.out.println("Saisissez le nom de la piece à modifier");
+				pieNom=sc.next();
+				Piece laPieceAModifier = null;
+				for(Piece p: daoPiece.findAll()) {
+					if (p.getPieNom().equals(pieNom)) { 
+						laPieceAModifier = p;  
+				}
+				System.out.println("1-modifier le nom, 2-la couleur,3-les 2");
+				 int choix2= sc.nextInt();
+					switch (choix2) {
+						case 1 :
+							System.out.println("nouveau nom ");
+							pieNom=sc.next();
+							laPieceAModifier.setPieNom(pieNom);
+							daoPiece.save(laPieceAModifier);
+						break;
+						case 2 :
+							System.out.println("nouvelle couleur");
+							pieCouleur=sc.next();
+							laPieceAModifier.setPieCouleur(pieCouleur);
+							daoPiece.save(laPieceAModifier);
+						break;
+						case 3 :
+							System.out.println("nouveau nom");
+							pieNom=sc.next();
+							laPieceAModifier.setPieNom(pieNom);
+							System.out.println("nouvelle couleur");
+							pieCouleur=sc.next();
+							laPieceAModifier.setPieCouleur(pieCouleur);
+							daoPiece.save(laPieceAModifier);
+						break;
+					}
+					
+				System.out.println("Voulez vous /n 1-ajouter /n modifier une figure ?");
+				choix= sc.nextInt();
+				IDAOFigure daoFigure = new DAOFigureJPA();
+				switch (choix) {
+					case 1 :
+						System.out.println("Veuillez saisir l'id de la pièce associée");
+						int figIdPiece=sc.nextInt();
+						Figure figure = new Figure();
+						Piece pieceFigure = new Piece();
+						pieceFigure = daoPiece.findById(figIdPiece);
+						figure.setPiece(pieceFigure);
+						daoFigure.save(figure);
+						break;
+					case 2 :
+						System.out.println("Veuillez saisir l'id de la figure à modifier");
+						int figureId = sc.nextInt();
+						System.out.println("Veuillez saisir l'id de la pièce associée");
+						figIdPiece=sc.nextInt();
+						pieceFigure = daoPiece.findById(figIdPiece);
+						figure = daoFigure.findById(figureId);
+						figure.setPiece(pieceFigure);
+						daoFigure.save(figure);
+						break;
+				}
+						
+				System.out.println("Voulez vous /n 1-ajouter /n modifier un point ?");
+				choix= sc.nextInt();
+				IDAOPoint daoPoint = new DAOPointJPA();
+				switch (choix) {
+					case 1 :
+						System.out.println("Veuillez saisir le coordonné x");
+						int x=sc.nextInt();
+						System.out.println("Veuillez saisir le coordonné y");
+						int y=sc.nextInt();
+						System.out.println("Veuillez saisir l'id de la figure associée");
+						int figureId = sc.nextInt();
+						Point point = new Point();
+						point.setPointX(x);
+						point.setPointX(y);
+						Figure figurePoint = daoFigure.findById(figureId);
+						point.setFigure(figurePoint);
+						daoPoint.save(point);
+						break;
+					case 2 :
+						System.out.println("1-modifier x,y \n 2-figure associée \n 3-tout ");
+						choix2= sc.nextInt();
+						switch (choix2) {
+							case 1 :
+								System.out.println("Saississez l'id du point à modifier");
+								int pointId = sc.nextInt();
+								point = daoPoint.findById(pointId);
+								System.out.println("Saississez x");
+								x=sc.nextInt();
+								System.out.println("Veuillez saisir le coordonné y");
+								y=sc.nextInt();
+								point.setPointX(x);
+								point.setPointX(y);
+								daoPoint.save(point);
+								break;
+							case 2 :
+								System.out.println("Saississez l'id du point à modifier");
+								pointId = sc.nextInt();
+								point = daoPoint.findById(pointId);
+								System.out.println("Veuillez saisir l'id de la figure associée");
+								figureId = sc.nextInt();
+								figurePoint = daoFigure.findById(figureId);
+								point.setFigure(figurePoint);
+								daoPoint.save(point);
+							case 3 :
+								System.out.println("Saississez l'id du point à modifier");
+								pointId = sc.nextInt();
+								point = daoPoint.findById(pointId);
+								System.out.println("Saississez x");
+								x=sc.nextInt();
+								System.out.println("Veuillez saisir le coordonné y");
+								y=sc.nextInt();
+								System.out.println("Veuillez saisir l'id de la figure associée");
+								figureId = sc.nextInt();
+								figurePoint = daoFigure.findById(figureId);
+								point.setPointX(x);
+								point.setPointX(y);
+								point.setFigure(figurePoint);
+								daoPoint.save(point);
+								break;
+						}
+						
+						
+				
+				}			
+
 		
 		HibernateUtils.close();
-}
-}
+}}}
+	}
+
