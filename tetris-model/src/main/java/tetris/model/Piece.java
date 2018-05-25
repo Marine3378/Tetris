@@ -24,7 +24,7 @@ public class Piece {
  protected int pieId;
 	@Column(name="PIE_NOM", columnDefinition="VARCHAR(50)")
  protected String pieNom;
-	@Column(name="PIE_COU", columnDefinition="VARCHAR(50)")
+	@Column(name="PIE_COULEUR", columnDefinition="VARCHAR(50)")
  protected String pieCouleur;
 	@Column(name="PIE_IDPOINT")
  protected int pieIdPoint;
@@ -83,14 +83,17 @@ public class Piece {
 
 
 			//Constructeurs
-			public Piece(int pieId, String pieNom, String pieCouleur) {
+			public Piece() {
+				
+				
+			}
+			public Piece(/*int pieId,*/String pieNom, String pieCouleur) {
 				super();
-				this.pieId = pieId;
+				//this.pieId = pieId;
 				this.pieNom = pieNom;
 				this.pieCouleur = pieCouleur;
 				
 			}
-
 
 		
 }

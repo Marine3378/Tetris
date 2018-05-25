@@ -41,6 +41,7 @@ EntityTransaction tx=this.em.getTransaction();
 		 
 		}
 		catch (Exception ex){
+			ex.printStackTrace();
 			return false;
 	}
 		}
@@ -51,7 +52,7 @@ EntityTransaction tx=this.em.getTransaction();
 
 	public List<Administrateur> findAll() {
 		return this.em
-				.createQuery("select a from Administrteur a", Administrateur.class)
+				.createQuery("select a from Administrateur a", Administrateur.class)
 				.getResultList();
 		}
 

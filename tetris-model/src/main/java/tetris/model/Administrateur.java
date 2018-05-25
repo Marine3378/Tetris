@@ -43,12 +43,15 @@ protected int admId;
 
 		
 	//Constructeur	
-		public Administrateur(int adm_id, String adm_mdp) {
-			super();
-			this.admId = adm_id;
-			this.admMdp = adm_mdp;
+		//vide pour instancier methode delete:
+		public Administrateur() {
+			
 		}
-
+		public Administrateur(String admMdp /*adm_id, */) {
+			super();
+			//.admId = adm_id;
+			this.admMdp = admMdp;
+		}
 		
 
  

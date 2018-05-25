@@ -228,8 +228,24 @@ public class principal {
 		IDAOFigure daoFigure= new DAOFigureJPA();
 		IDAOPartie daoPartie= new DAOPartieJPA();
 		IDAOPoint daoPoint= new DAOPointJPA();
+//ADMINISTRATEUR	
+		//Administrateur admin1 = new Administrateur();
+		//daoAdministrateur.save(admin1);
+		//admin1.setAdmId(3);
+		//daoAdministrateur.delete(admin1);
+		//daoAdministrateur.findById(4);
+		//daoAdministrateur.findAll();
+		
+//PIECE		
+		Piece pieceA = new Piece("cube","rouge");
 		
 		
+		daoPiece.save(pieceA);
+		
+		//admin1.setAdmId(3);
+		//daoAdministrateur.delete(admin1);
+		//daoAdministrateur.findById(4);
+		//daoAdministrateur.findAll();
 		
 }
 }
