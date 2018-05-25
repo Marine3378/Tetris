@@ -19,7 +19,7 @@ public class DAOPointJPA implements IDAOPoint{
 		tx.begin();
 		this.em.persist(entity);
 		tx.commit();
-		System.out.println("c'est quoi ton probleme! zyva la");
+		
 		return entity;
 		}
 		
