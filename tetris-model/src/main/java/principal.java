@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tetris.model.*;
 
 public class principal {
@@ -109,7 +112,7 @@ public class principal {
 	System.out.println(leJoueurAChercher.getJou_nom());
 	*/
 	/*// CREATION DU JOUEUR
-			System.out.println("Voulez vous /n 1-ajouter un joueur /n modifier un joueur ?");
+			+
   			int choix= sc.nextInt();
   			switch (choix) {
   			case 1 :
@@ -223,14 +226,19 @@ public class principal {
 			int point_idfigure=sc.nextInt();
 			Point point = new Point(point_id,point_x,point_y,point_idfigure);
 			daoPoint.save(point);	*/
-		IDAOAdministrateur daoAdministrateur= new DAOAdministrateurJPA();
+		
+//JPA		
+		
+		
+/*		IDAOAdministrateur daoAdministrateur= new DAOAdministrateurJPA();
 		IDAOPiece daoPiece= new DAOPieceJPA();
 		IDAOFigure daoFigure= new DAOFigureJPA();
 		IDAOPartie daoPartie= new DAOPartieJPA();
 		IDAOPoint daoPoint= new DAOPointJPA();
 		IDAOJoueur daoJoueur= new DAOJoueurJPA();
 //ADMINISTRATEUR	
-		//Administrateur admin1 = new Administrateur();
+		Administrateur admin1 = new Administrateur();
+		admin1.setAdmMdp("fzufh");
 		//daoAdministrateur.save(admin1);
 		//admin1.setAdmId(3);
 		//daoAdministrateur.delete(admin1);
@@ -238,11 +246,11 @@ public class principal {
 		//daoAdministrateur.findAll();
 		
 //PIECE		
-		//Piece pieceA = new Piece("cube","rouge");
-		//Piece pieceB = new Piece();
-		//pieceB.setPieId(1);
-		
-		//daoPiece.save(pieceA);
+		Piece pieceA = new Piece("cube","rouge");
+		Piece pieceB = new Piece();
+		pieceB.setPieCouleur("orange");
+		pieceB.setPieNom("losange");
+		//daoPiece.save(pieceB);
 		
 		//admin1.setAdmId(3);
 		//daoAdministrateur.delete(admin1);
@@ -252,7 +260,9 @@ public class principal {
 		//daoPiece.delete(pieceB);
 
 //JOUEUR		
-		/*Joueur joueurA = new Joueur("toto");
+		Joueur joueurA = new Joueur("toto");
+		joueurA.setJouNomutilisateur("utilisateur");
+		joueurA.setJouPrenom("tizfn");
 		daoJoueur.save(joueurA);
 		Joueur joueurB = new Joueur("tata");
 		daoJoueur.save(joueurB);
@@ -260,7 +270,7 @@ public class principal {
 		daoJoueur.save(joueurC);
 		Joueur joueurA = new Joueur();
 		joueurA.setJouId(1);
-		daoJoueur.delete(joueurA);*/
+		daoJoueur.delete(joueurA);
 		
 		//System.out.println(daoJoueur.findById(2));
 		//System.out.println(daoJoueur.findAll());
@@ -269,6 +279,9 @@ public class principal {
 		Partie partieA = new Partie();
 		Partie partieB = new Partie();
 		Partie partieC = new Partie();
+		partieA.setParNiveau("155");
+		partieA.setParScore(345851514);
+		partieA.setJoueur(joueurA);
 		//daoPartie.save(partieA);
 		//daoPartie.save(partieB);
 		//daoPartie.save(partieC);
@@ -282,15 +295,36 @@ public class principal {
 		Figure figureA = new Figure();
 		Figure figureB = new Figure();
 		Figure figureC = new Figure();
+		pieceA.setPieId(5);
+		figureA.setPiece(pieceA);
 		daoFigure.save(figureA);
-		daoFigure.save(figureB);
-        daoFigure.save(figureC);
+		//daoFigure.save(figureB);
+		//daoFigure.save(figureC);
 
-		//figureA.setParId(1);
+		//figureA.setFigId(1);
 		//daoFigure.delete(figureA);
 		
 		//System.out.println(daoFigure.findById(2));
 		//System.out.println(daoFigure.findAll());
-						
+
+//POINT
+		Point pointA = new Point(1,1);
+		Point pointB = new Point(1,2);
+		Point pointC = new Point(1,3);
+		pointA.setFigure(figureA);
+		daoPoint.save(pointA);
+		//daoPoint.save(pointB);
+		//daoPoint.save(pointC);
+
+		Point pointD = new Point();
+		pointD.setPointId(1);
+		daoPoint.delete(pointD);
+		
+		//System.out.println(daoPoint.findById(2));
+		//System.out.println(daoPoint.findAll());*/
+		
+		
+		
+		HibernateUtils.close();
 }
 }

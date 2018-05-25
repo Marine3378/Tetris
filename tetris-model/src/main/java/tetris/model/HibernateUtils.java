@@ -29,5 +29,7 @@ public class HibernateUtils {
 		EntityManager em= emf.createEntityManager();
 		entityManager.add(em);
 		return em;
+		
 	}
+
 }

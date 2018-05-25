@@ -26,6 +26,15 @@ public class Figure {
 	
 	
 
+public Piece getPiece() {
+		return piece;
+	}
+
+
+	public void setPiece(Piece piece) {
+		this.piece = piece;
+	}
+
 @OneToMany (mappedBy="figure")
 private List<Point> pointsJouees;
 
@@ -40,12 +49,12 @@ private List<Point> pointsJouees;
 	this.pointsJouees = pointsJouees;
 	}
 
-	public int getFigIdpiece() {
+	public int getFigId() {
 		return figId;
 	}
 
 	
-	public void setFigIdpiece(int figIdpiece) {
+	public void setFigId(int figId) {
 		this.figId = figId;
 	}
 

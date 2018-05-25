@@ -22,7 +22,16 @@ protected int parScore;
 	@JoinColumn(name="PAR_IDJOUEUR")
 	protected Joueur joueur;
 
-//Getters and setters
+
+	//Getters and setters
+	public Joueur getJoueur() {
+		return joueur;
+	}
+
+	public void setJoueur(Joueur joueur) {
+		this.joueur = joueur;
+	}
+
 	public int getParId() {
 		return parId;
 	}

@@ -28,7 +28,16 @@ protected int pointY;
 	
 //protected int pointIdFigure;
 
-//Getters and Setters
+
+
+	//Getters and Setters
+	public Figure getFigure() {
+		return figure;
+	}
+
+	public void setFigure(Figure figure) {
+		this.figure = figure;
+	}
 	public int getPointId() {
 		return pointId;
 	}
@@ -61,13 +70,14 @@ protected int pointY;
 		this.pointIdFigure = pointIdFigure;
 	}*/
 		//Constructeur
-		public Point(int pointId, int pointX, int pointY, int pointIdFigure) {
+		public Point(/*int pointId, int pointIdFigure,*/ int pointX, int pointY) {
 			super();
-			this.pointId = pointId;
 			this.pointX = pointX;
 			this.pointY = pointY;
 			//this.pointIdFigure = pointIdFigure;
 		}
 
-		
+		public Point() {
+			
+		}
 }

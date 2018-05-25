@@ -59,6 +59,9 @@ public class DAOPieceJPA implements IDAOPiece{
 	{
 		Query myQuery = em.createQuery("select p from Piece p join fetch p.Figure f join fetch f.Point po where p.nom = :nomPiece", Piece.class);
 		myQuery.setParameter("nomPiece", nomPiece);
+		em.close();
 		return myQuery.getResultList();
 	}
+
+	
 }
