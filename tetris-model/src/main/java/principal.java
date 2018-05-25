@@ -214,11 +214,19 @@ public class principal {
 		 * 
 		 * //System.out.println(daoPoint.findById(2));
 		 * //System.out.println(daoPoint.findAll());
-		 */
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Voulez vous /n 1-ajouter /n modifier un joueur ?");
+		 */	
+		IDAOPiece daoPiece = new DAOPieceJPA();
+		IDAOFigure daoFigure = new DAOFigureJPA();
+				Scanner sc = new Scanner(System.in);
+			System.out.println("Choisissez \n 1-Joueur \n 2-Administrateur \n 3-Piece \n 4-Figure \n 5-Point");
+			int choixUltime = sc.nextInt();			
+	switch (choixUltime) {
+	case 1 :
+	
+		System.out.println("Voulez vous \n 1-ajouter \n 2-modifier un joueur ?");
 		int choix = sc.nextInt();
-		IDAOJoueur daoJoueur = new DAOJoueurJPA();
+		IDAOJoueur daoJoueur = new DAOJoueurJPA(); 
+		
 		switch (choix) {
 		case 1:
 			System.out.println("jou_nom");
@@ -244,7 +252,7 @@ public class principal {
 											// joueur à modifier
 				}
 			}
-			System.out.println("1-modifier le nom, 2-modifier le prénom, 3-modifier le nom d'utilisateur, 4-tout");
+			System.out.println("Choisissez \n 1-modifier le nom, \n 2-modifier le prénom, \n 3-modifier le nom d'utilisateur, \n 4-tout");
 			int choix2 = sc.nextInt();
 			switch (choix2) {
 			case 1:
@@ -282,8 +290,9 @@ public class principal {
 			}
 			break;
 		}
-
-		System.out.println("Voulez vous /n 1-ajouter /n modifier un administrateur ?");
+break;
+	case 2:
+		System.out.println("Voulez vous \n 1-ajouter \n 2-modifier un administrateur ?");
 		choix = sc.nextInt();
 		IDAOAdministrateur daoAdministrateur = new DAOAdministrateurJPA();
 		switch (choix) {
@@ -304,9 +313,11 @@ public class principal {
 			daoAdministrateur.save(adminAChanger);
 			break;
 		}
-		System.out.println("Voulez vous /n 1-ajouter /n modifier une pièce ?");
+		break;
+	case 3:
+		System.out.println("Voulez vous \n 1-ajouter \n 2-modifier une pièce ?");
 		choix = sc.nextInt();
-		IDAOPiece daoPiece = new DAOPieceJPA();
+
 		switch (choix) {
 		case 1:
 			System.out.println("Nom de la pièce");
@@ -328,7 +339,7 @@ public class principal {
 					laPieceAModifier = p;
 					}
 				}
-				System.out.println("1-modifier le nom, 2-la couleur,3-les 2");
+				System.out.println("Choisisssez \n 1-modifier le nom, \n 2-la couleur, \n 3-les 2");
 				int choix2 = sc.nextInt();
 				switch (choix2) {
 				case 1:
@@ -355,10 +366,11 @@ public class principal {
 				}
 				break;
 			}
-
-			System.out.println("Voulez vous /n 1-ajouter /n modifier une figure ?");
+break;
+	case 4:
+			System.out.println("Voulez vous \n 1-ajouter \n 2-modifier une figure ?");
 			choix = sc.nextInt();
-			IDAOFigure daoFigure = new DAOFigureJPA();
+	
 			switch (choix) {
 			case 1:
 				System.out.println("Veuillez saisir l'id de la pièce associée");
@@ -380,8 +392,9 @@ public class principal {
 				daoFigure.save(figure);
 				break;
 			}
-
-			System.out.println("Voulez vous /n 1-ajouter /n modifier un point ?");
+break;
+	case 5:
+			System.out.println("Voulez vous \n 1-ajouter \n 2-modifier un point ?");
 			choix = sc.nextInt();
 			IDAOPoint daoPoint = new DAOPointJPA();
 			switch (choix) {
@@ -400,7 +413,7 @@ public class principal {
 				daoPoint.save(point);
 				break;
 			case 2:
-				System.out.println("1-modifier x,y \n 2-figure associée \n 3-tout ");
+				System.out.println("Choisissez \n 1-modifier x,y \n 2-figure associée \n 3-tout ");
 				int choix2 = sc.nextInt();
 				switch (choix2) {
 				case 1:
@@ -412,7 +425,7 @@ public class principal {
 					System.out.println("Veuillez saisir le coordonné y");
 					y = sc.nextInt();
 					point.setPointX(x);
-					point.setPointX(y);
+					point.setPointY(y);
 					daoPoint.save(point);
 					break;
 				case 2:
@@ -445,7 +458,7 @@ public class principal {
 				break;
 
 			}
-
+break;}
 			HibernateUtils.close();
 		}
 	}
