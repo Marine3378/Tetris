@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import tetris.model.Administrateur;
 
 public interface IDAOAdministrateur extends JpaRepository<Administrateur, Integer> {
+
+		public Administrateur findAdministrateurById(int admId);
 	
 	
 	

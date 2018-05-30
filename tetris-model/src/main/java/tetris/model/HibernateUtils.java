@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 public class HibernateUtils {
 	private static EntityManagerFactory emf;
-	private static List<EntityManager> entityManager = new ArrayList();
+	private static List<EntityManager> entityManager = new ArrayList<EntityManager>();
 	public static void open() {
 		if (emf == null) {
 			emf = Persistence.createEntityManagerFactory("NomPersistenceUnit");

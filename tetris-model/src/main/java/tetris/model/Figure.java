@@ -18,7 +18,7 @@ public class Figure {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name= "FIG_ID")
-	protected int figId;
+	protected int id;
 	
 	@ManyToOne
 	@JoinColumn(name="FIG_IDPIECE")
@@ -49,13 +49,13 @@ private List<Point> pointsJouees;
 	this.pointsJouees = pointsJouees;
 	}
 
-	public int getFigId() {
-		return figId;
+	public int getId() {
+		return id;
 	}
 
 	
-	public void setFigId(int figId) {
-		this.figId = figId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 		//Constructeur

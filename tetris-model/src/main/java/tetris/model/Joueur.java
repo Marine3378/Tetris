@@ -18,7 +18,7 @@ public class Joueur {
 	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="JOU_ID")
-protected int jouId;
+protected int id;
 	
 	@Column(name="JOU_NOM", columnDefinition="VARCHAR(50)")
 	@NotEmpty
@@ -41,12 +41,12 @@ protected String jouNomutilisateur;
 	
 	
 //Getters and Setters
-	public int getJouId() {
-		return jouId;
+	public int getId() {
+		return id;
 	}
 
-	public void setJouId(int jouId) {
-		this.jouId = jouId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getJouNom() {
@@ -86,7 +86,7 @@ public List<Partie> getPartiesJouees() {
 //oblige le joueur à entrer toutes ces informations pour se créer
 		public Joueur(/*int jouId,*/ String jouNom/*, String jouPrenom, String jouNomutilisateur*/) {
 			super();
-			this.jouId = jouId;
+			this.id = id;
 			this.jouNom = jouNom;
 			this.jouPrenom = jouPrenom;
 			this.jouNomutilisateur = jouNomutilisateur;

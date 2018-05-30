@@ -17,7 +17,7 @@ public class Point {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="POINT_ID")
 	@NotNull
-protected int pointId;
+protected int id;
 	@Column(name="POINT_X")
 protected int pointX;
 	@Column(name="POINT_Y")
@@ -38,12 +38,12 @@ protected int pointY;
 	public void setFigure(Figure figure) {
 		this.figure = figure;
 	}
-	public int getPointId() {
-		return pointId;
+	public int getId() {
+		return id;
 	}
 
-	public void setPointId(int pointId) {
-		this.pointId = pointId;
+	public void setId(int pointId) {
+		this.id = id;
 	}
 
 	public int getPointX() {

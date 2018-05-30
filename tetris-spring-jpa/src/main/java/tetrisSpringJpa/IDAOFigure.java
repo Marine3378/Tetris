@@ -6,4 +6,6 @@ import tetris.model.Figure;
 
 public interface IDAOFigure extends JpaRepository<Figure, Integer> {
 
+	public Figure findFigureById(int figureId);
+
 }

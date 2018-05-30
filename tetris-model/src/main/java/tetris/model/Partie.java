@@ -10,7 +10,7 @@ public class Partie {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PAR_ID")
-protected int parId;
+protected int id;
 	
 	@Column(name="PAR_NIVEAU", columnDefinition="VARCHAR(50)")
 protected String parNiveau; // peut-être à modifier en int
@@ -32,12 +32,12 @@ protected int parScore;
 		this.joueur = joueur;
 	}
 
-	public int getParId() {
-		return parId;
+	public int getId() {
+		return id;
 	}
 
-	public void setParId(int parId) {
-		this.parId = parId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getParNiveau() {

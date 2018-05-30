@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,8 +21,7 @@ public class Piece {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PIE_ID")
-	@NotNull
- protected int pieId;
+ protected int id;
 	@Column(name="PIE_NOM", columnDefinition="VARCHAR(50)")
  protected String pieNom;
 	@Column(name="PIE_COULEUR", columnDefinition="VARCHAR(50)")
@@ -32,13 +32,13 @@ public class Piece {
 	private List<Figure> figuresJouees;
  
 		// Getters and Setters
-	public int getPieId() {
-		return pieId;
+	public int getId() {
+		return id;
 	}
 
 
-	public void setPieId(int pieId) {
-		this.pieId = pieId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
@@ -63,7 +63,7 @@ public class Piece {
 
 
 		
-				
+			
 	public List<Figure> getFiguresJouees() {
 		return figuresJouees;
 	}

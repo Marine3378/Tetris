@@ -17,20 +17,20 @@ public class Administrateur {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 @Column(name="ADM_ID")
-protected int admId;
+	 protected int id;
 	
 	 @Column(name="ADM_MDP", columnDefinition="VARCHAR(50)")
 	 @NotEmpty
 	 @Size(max=50)
- protected String admMdp;
+	 protected String admMdp;
 	 
  //Getters and Setters
-	 public int getAdmId() {
-			return admId;
+	 public int getId() {
+			return id;
 		}
 
-		public void setAdmId(int admId) {
-			this.admId = admId;
+		public void setId(int id) {
+			this.id = id;
 		}
 
 		public String getAdmMdp() {
