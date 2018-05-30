@@ -12,4 +12,5 @@ public class SpringApplication
 		myContext.getBeanFactory().createBean(AppConsole.class).lectureTetris();
 		myContext.close();
 	}
+	
 }

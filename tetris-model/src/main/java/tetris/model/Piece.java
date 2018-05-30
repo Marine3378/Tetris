@@ -1,6 +1,7 @@
 package tetris.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ public class Piece {
 
  
 	@OneToMany(mappedBy="piece")
-	private List<Figure> figuresJouees;
+	private Set<Figure> figuresJouees;
  
 		// Getters and Setters
 	public int getId() {
@@ -64,12 +65,12 @@ public class Piece {
 
 		
 			
-	public List<Figure> getFiguresJouees() {
+	public Set<Figure> getFiguresJouees() {
 		return figuresJouees;
 	}
 
 
-	public void setFiguresJouees(List<Figure> figuresJouees) {
+	public void setFiguresJouees(Set<Figure> figuresJouees) {
 		this.figuresJouees = figuresJouees;
 	}
 

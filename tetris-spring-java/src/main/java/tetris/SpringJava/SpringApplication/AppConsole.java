@@ -49,6 +49,7 @@ public class AppConsole
 	public void lectureTetris() {
 		//IDAOPiece daoPiece = new DAOPieceJPA();
 		//IDAOFigure daoFigure = new DAOFigureJPA();
+		System.out.println(daoPiece.findUnePiece("cube"));
 				Scanner sc = new Scanner(System.in);
 			System.out.println("Choisissez \n 1-Joueur \n 2-Administrateur \n 3-Piece \n 4-Figure \n 5-Point");
 			int choixUltime = sc.nextInt();			
@@ -291,6 +292,6 @@ break;
 
 			}
 break;}
-			HibernateUtils.close();
-		}
+			
 	}
+}
