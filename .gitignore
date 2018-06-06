@@ -1,7 +1,4 @@
-target/
-
 **/target/
-**/target/**/*.class
 **/.settings/
 **/.project
 **/.classpath
