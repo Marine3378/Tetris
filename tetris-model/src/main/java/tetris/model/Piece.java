@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 
@@ -23,9 +24,13 @@ public class Piece {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PIE_ID")
  protected int id;
+	
 	@Column(name="PIE_NOM", columnDefinition="VARCHAR(50)")
+	@NotEmpty(message="Le nom est obligatoire")
  protected String pieNom;
+	
 	@Column(name="PIE_COULEUR", columnDefinition="VARCHAR(50)")
+	@NotEmpty(message="La couleur est obligatoire")
  protected String pieCouleur;
 
  

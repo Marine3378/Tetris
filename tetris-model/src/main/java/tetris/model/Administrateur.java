@@ -18,13 +18,26 @@ public class Administrateur {
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 @Column(name="ADM_ID")
 	 protected int id;
+	 
+	 @Column(name="ADM_NOMUTILISATEUR", columnDefinition="VARCHAR(50)")
+	 @NotEmpty(message = "Le nom d'utilisateur est obligatoire")
+	 @Size(max=50)
+	protected String nomUtilisateur;
 	
 	 @Column(name="ADM_MDP", columnDefinition="VARCHAR(50)")
-	 @NotEmpty
+	 @NotEmpty(message = "Le mot de passe est obligatoire")
 	 @Size(max=50)
 	 protected String admMdp;
 	 
- //Getters and Setters
+ public String getNomUtilisateur() {
+		return nomUtilisateur;
+	}
+
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
+	}
+
+	//Getters and Setters
 	 public int getId() {
 			return id;
 		}

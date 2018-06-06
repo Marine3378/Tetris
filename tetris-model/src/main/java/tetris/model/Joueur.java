@@ -39,8 +39,21 @@ protected String jouNomutilisateur;
 	@OneToMany(mappedBy="joueur")
 	private List<Partie> partiesJouees;
 	
+	 @Column(name="JOU_MDP", columnDefinition="VARCHAR(50)")
+	 @NotEmpty
+	 @Size(max=50)
+	protected String jouMdp;
 	
-//Getters and Setters
+	
+public String getJouMdp() {
+		return jouMdp;
+	}
+
+	public void setJouMdp(String jouMdp) {
+		this.jouMdp = jouMdp;
+	}
+
+	//Getters and Setters
 	public int getId() {
 		return id;
 	}

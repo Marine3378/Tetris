@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset= "UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<title></title>
+
+</head>
+
+<body>
+<h1>Liste des Pieces</h1>
+
+<a th:href="NomCouleur">Ajouter une piece</a>
+
+<section>
+<table class="table">
+<thead class="thead-dark">
+   <tr>
+     <th scope="col">#</th>
+     <th scope="col">Nom de la Piece</th>
+     <th scope="col">Couleur</th>
+    </tr>
+ </thead>
+  <tbody>
+<tr th:each="piece:${piece}">
+     <!-- <th scope="row">1</th> -->
+     <td th:text="${piece.id}"></td>
+<td th:text="${piece.pieNom}"></td>
+<td>[[${piece.pieCouleur}]]</td>
+
+<td><a th:href="@{supprimerPiece(id=${piece.id})}">Supprimer</a></td>
+<td><a th:href="@{modifierPiece(id=${piece.id})}">Modifier</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+</body>
+</html>
