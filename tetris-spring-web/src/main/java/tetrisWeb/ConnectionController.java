@@ -8,8 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import tetris.model.Administrateur;
+import tetris.model.Piece;
 
 
 
@@ -32,4 +34,6 @@ public class ConnectionController {
 		System.out.println(administrateur.getNomUtilisateur());
 		return "redirect:/plateauTetris";
 }
+
+
 }
