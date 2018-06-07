@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="figure")
 public class Figure {
@@ -22,7 +24,7 @@ public class Figure {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name= "FIG_ID")
 	protected int id;
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="FIG_IDPIECE")
 	@NotNull (message = "L'id de la piece correspondante est obligatoire")

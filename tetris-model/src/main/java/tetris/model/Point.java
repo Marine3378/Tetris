@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name= "point")
 public class Point {
@@ -28,6 +30,7 @@ protected int pointX;
 	@NotNull(message = "Y doit être défini")
 protected int pointY;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="POINT_IDFIGURE")
 	protected Figure figure;
