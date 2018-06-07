@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<title></title>
+
+</head>
+
+<body>
+<h1 layout:fragment="custom-title">Liste des Points</h1> 
+	<h1>Liste des Points</h1>
+
+
+	<a th:href="@{formulairePoint(id=${figure.id})}">Ajouter un Point</a>
+	<br>
+	<a href="ListePiece">Liste des Pieces</a>
+	<br>
+	<a href="ListerFigure">Liste des Figures</a>
+	
+	<section layout:fragment="custom-content"> 
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">X</th>
+					<th scope="col">Y</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="point:${points}">
+					<!-- <th scope="row">1</th> -->
+					<td th:text="${point.id}"></td>
+					<td th:text="${point.pointX}"></td>
+					<td th:text="${point.pointY}"></td>
+					<td><a th:href="@{supprimerPoint(id=${point.id})}">Supprimer</a></td>
+					<td><a th:href="@{modifierPoint(id=${point.id})}">Modifier</a></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

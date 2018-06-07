@@ -44,7 +44,7 @@ public class NomCouleurController {
 	@PostMapping("/NomCouleur")
 	public String ajouterPiece(@Valid @ModelAttribute Piece piece, BindingResult result) {
 		if(result.hasErrors()) {
-			return "/NomCouleur";
+			return "NomCouleur";
 		}
 		daoPiece.save(piece);
 		return "redirect:/ListePiece";
@@ -67,7 +67,7 @@ public class NomCouleurController {
 	@PostMapping("/modifierPiece")
 	public String modifierPiece(@Valid @ModelAttribute Piece piece, BindingResult result) {
 		if(result.hasErrors()) {
-			return "/NomCouleur";
+			return "NomCouleur";
 		}
 		daoPiece.save(piece);
 		return "redirect:/ListePiece";

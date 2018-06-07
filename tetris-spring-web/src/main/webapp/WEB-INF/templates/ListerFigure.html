@@ -15,34 +15,29 @@ layout:decorator="layout.html">
 
 <body>
 <header>
-		<h1 layout:fragment="custom-title">Liste des Pieces</h1> 
+		<h1 layout:fragment="custom-title">Liste des Figures</h1> 
 	</header>
 
 
-<a th:href="NomCouleur">Ajouter une piece</a>
+<a th:href="@{ajouterFigure(id=${piece.id})}">Ajouter une figure</a>
 <br>
-	<a href="connectionTetris">Changer d'utilisateur</a>
-
+<a href="ListePiece">Liste des Pieces</a>
 
 <section layout:fragment="custom-content"> 
 <table class="table">
 <thead class="thead-dark">
    <tr>
-     <th scope="col">#</th>
-     <th scope="col">Nom de la Piece</th>
-     <th scope="col">Couleur</th>
+     <th scope="col">id</th>
+     
     </tr>
  </thead>
   <tbody>
-<tr th:each="piece:${piece}">
+<tr th:each="figure:${figures}">
      <!-- <th scope="row">1</th> -->
-     <td th:text="${piece.id}"></td>
-<td th:text="${piece.pieNom}"></td>
-<td>[[${piece.pieCouleur}]]</td>
-
-<td><a th:href="@{supprimerPiece(id=${piece.id})}">Supprimer</a></td>
-<td><a th:href="@{modifierPiece(id=${piece.id})}">Modifier</a></td>
-<td><a th:href="@{ListerFigure(id=${piece.id})}">Figures</a></td>
+     <td th:text="${figure.id}"></td>
+	<td><a th:href="@{supprimerFigure(id=${figure.id})}">Supprimer</a></td>
+	<td><a th:href="@{ListePoint(id=${figure.id})}">Points</a></td>
+	
 </tr>
 </tbody>
 </table>

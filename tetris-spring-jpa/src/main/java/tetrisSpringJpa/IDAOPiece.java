@@ -13,6 +13,7 @@ public interface IDAOPiece extends JpaRepository<Piece, Integer> {
 	
 	@Query("select p from Piece p left join fetch p.figuresJouees f left join fetch f.pointsJouees po where p.pieNom = :nomPiece")
 	public List<Piece> findUnePiece(@Param("nomPiece")String PieceFigurePoint);
+	
 
 
 

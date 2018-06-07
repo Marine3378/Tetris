@@ -3,6 +3,7 @@ package tetris.model;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,6 +24,7 @@ public class Piece {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PIE_ID")
+	
  protected int id;
 	
 	@Column(name="PIE_NOM", columnDefinition="VARCHAR(50)")
@@ -34,7 +36,7 @@ public class Piece {
  protected String pieCouleur;
 
  
-	@OneToMany(mappedBy="piece")
+	@OneToMany(mappedBy="piece", cascade = {CascadeType.ALL})
 	private Set<Figure> figuresJouees;
  
 		// Getters and Setters

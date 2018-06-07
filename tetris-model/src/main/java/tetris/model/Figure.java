@@ -2,6 +2,7 @@ package tetris.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="figure")
@@ -22,6 +25,7 @@ public class Figure {
 	
 	@ManyToOne
 	@JoinColumn(name="FIG_IDPIECE")
+	@NotNull (message = "L'id de la piece correspondante est obligatoire")
 	protected Piece piece;
 	
 	

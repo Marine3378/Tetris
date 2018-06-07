@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -18,10 +19,15 @@ public class Point {
 	@Column(name="POINT_ID")
 	@NotNull
 protected int id;
+	
 	@Column(name="POINT_X")
+	@NotNull(message = "X doit être défini")
+	
 protected int pointX;
 	@Column(name="POINT_Y")
+	@NotNull(message = "Y doit être défini")
 protected int pointY;
+	
 	@ManyToOne
 	@JoinColumn(name="POINT_IDFIGURE")
 	protected Figure figure;
