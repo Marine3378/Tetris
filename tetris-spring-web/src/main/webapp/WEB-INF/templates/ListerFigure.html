@@ -19,11 +19,12 @@ layout:decorator="layout.html">
 	</header>
 
 
+
+
+<section layout:fragment="custom-content"> 
 <a th:href="@{ajouterFigure(id=${piece.id})}">Ajouter une figure</a>
 <br>
 <a href="ListePiece">Liste des Pieces</a>
-
-<section layout:fragment="custom-content"> 
 <table class="table">
 <thead class="thead-dark">
    <tr>

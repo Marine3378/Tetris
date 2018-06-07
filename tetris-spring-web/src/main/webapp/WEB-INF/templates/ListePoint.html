@@ -22,13 +22,14 @@ layout:decorator="layout.html">
 	<h1>Liste des Points</h1>
 
 
+	
+	
+	<section layout:fragment="custom-content"> 
 	<a th:href="@{formulairePoint(id=${figure.id})}">Ajouter un Point</a>
 	<br>
 	<a href="ListePiece">Liste des Pieces</a>
 	<br>
 	<a href="ListerFigure">Liste des Figures</a>
-	
-	<section layout:fragment="custom-content"> 
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
