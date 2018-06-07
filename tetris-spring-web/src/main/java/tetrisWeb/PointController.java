@@ -38,7 +38,7 @@ public class PointController {
 	//Ajouter
 	@GetMapping("/formulairePoint")
 	public String ajouterPoint(Model model, Figure figure, Point point) {
-		model.addAttribute("point", point =  new Point());
+		
 		//figure = new Figure();
 		//figure.setId(id);
 		//point.setFigure(figure);
@@ -61,11 +61,11 @@ public class PointController {
 	//Supprimer
 	@GetMapping("/supprimerPoint")
 	public String supprimerPoint(@RequestParam int id, Model model, Figure figure, Point point) {
-		figure = new Figure();
-		figure.setId(id);
-		point.setFigure(figure);
+		point = daoPoint.findById(id).get();
+		figure = point.getFigure();
+		int idFigure = figure.getId();
 		daoPoint.deleteById(id);
-		return "redirect:/ListePoint?id="+id;
+		return "redirect:/ListePoint?id="+idFigure;
 	}
 	
 	//Modifier
